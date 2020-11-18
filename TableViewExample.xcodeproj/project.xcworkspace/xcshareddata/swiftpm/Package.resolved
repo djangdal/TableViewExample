@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Voiper",
+        "repositoryURL": "git@github.com:voiapp/iOS-Voiper.git",
+        "state": {
+          "branch": null,
+          "revision": "ef4f38284d380db05073ad1e575987f2597ffd8d",
+          "version": "2.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
