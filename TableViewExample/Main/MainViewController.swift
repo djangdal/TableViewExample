@@ -42,6 +42,9 @@ final class MainViewController: ViewController {
 }
 
 extension MainViewController: MainViewControllerProtocol {
+    func reloadUI() {
+        tableView.reloadData()
+    }
 }
 
 extension MainViewController: UITableViewDataSource {

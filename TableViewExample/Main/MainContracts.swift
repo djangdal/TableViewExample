@@ -9,6 +9,7 @@
 import Voiper
 
 protocol MainViewControllerProtocol: ViewControllerProtocol {
+    func reloadUI()
 }
 
 protocol MainPresenterProtocol: PresenterProtocol {

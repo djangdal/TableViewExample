@@ -15,10 +15,16 @@ final class MainPresenter: Presenter {
     typealias Configuration = Void
     
     private var rows: [CellDataSource] = []
+    private var titleText: String = "Some initial text"
     
     required init(configuration: Configuration) {
         super.init()
-        rows.append(HeaderDataSource(imageColor: .red, titleText: "Some title text"))
+        createDataSource()
+    }
+    
+    func createDataSource() {
+        rows.removeAll()
+        rows.append(HeaderDataSource(imageColor: .red, titleText: titleText))
         rows.append(TitleDataSource(titleText: "A scrollable section"))
         rows.append(ScrollableCellDataSource(items: [CollectionViewCellDataSource(color: .darkGray, description: "Item one", delegate: self),
                                                      CollectionViewCellDataSource(color: .gray, description: "Item in middle", delegate: self),
@@ -44,5 +50,8 @@ extension MainPresenter: MainPresenterProtocol {
 extension MainPresenter: CollectionViewCellDelegate {
     func collectionViewCell(_ cell: CollectionViewCell, didTap dataSource: CollectionViewCellDataSource) {
         print("Did tap cell-button with text \(dataSource.description)")
+        titleText = dataSource.description
+        createDataSource()
+        viewDelegate.reloadUI()
     }
 }
